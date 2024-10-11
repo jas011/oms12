@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet"
+data-purpose="Layout StyleSheet"
+title="Web Awesome"
+href="/css/app-wa-3b124ff0e0d7a67cd8c995d0aeb1d15a.css?vsn=d"><link rel="stylesheet"
+href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css"><link rel="stylesheet"
+href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-duotone-solid.css"><link rel="stylesheet"
+href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-thin.css"><link rel="stylesheet"
+href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-solid.css"><link rel="stylesheet"
+href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-regular.css"><link rel="stylesheet"
+href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-light.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css'>
+<link rel="stylesheet" href="nav.css">
+<script type="text/javascript" src="app.js" defer></script>
+<style>
+    .headrow, .row {
+        grid-template-columns: 4vw 10vw 5vw 12vw 12vw 6vw 7vw 13vw 7vw;
+        width: 76vw;
+        text-wrap: nowrap;
+    }
+    .row{
+        display: grid;
+        border: 1px solid black;
+        border-top: none;
+        align-items: center;
+        }
+    .row:last-child{
+        grid-template-columns: 4vw 10vw 5vw 12vw 12vw 6vw 7vw 13vw 7vw;
+            width: 76vw;
+        }
+        .headrow:nth-child(5){
+                /* width: 83px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+        }
+        .row>.cell:nth-child(6) {
+            
+            width: fit-content;
+            border: 1px solid;
+            height: fit-content;
+            border-radius: 7px;
+            font-size: smaller;
+            padding: 3px 10px;
+        }
+        .row>.cell:nth-child(9) {
+            
+            width: fit-content;
+            border: 1px solid;
+            height: fit-content;
+            border-radius: 7px;
+            font-size: smaller;
+            padding: 3px 10px;
+        }
+        .header{
+            font-family: grotesk;
+        }
+        .header {
+            margin: 1vh auto;
+            width: 93%;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1vw;
+            width: 93%;
+        }
+.table {
+    margin: 10px 50px 50px 50px;
+}
+.tabs>button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    margin: 5px 3px;
+    filter: blur(0.7px);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-family: 'grotesk';
+}
+.tabs {
+    background: #f1f1f2;
+    border-radius: 5px;
+}
+button {
+    cursor: pointer;
+}
+.tabs>button:nth-child(1) {
+    border: 1px solid;
+    background: white;
+    filter: none;
+}
+select {
+    border: 1px solid;
+    background: white;
+    box-shadow: none;
+    filter: none;
+    cursor: pointer;
+    background: none;
+    margin: 5px 3px;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-family: 'grotesk';
+}
+
+select:focus-visible {
+ outline-offset: 0;
+ outline: 0;
+}
+.cell{
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+</style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="overlay"></div>
+        <div class="sidebar">
+            <nav id="sidebar">
+                <ul>
+                  <li>
+                    <span class="logo">MedicineGO</span>
+                    <button onclick=toggleSidebar() id="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z"/></svg>
+                    </button>
+                  </li>
+                  <li >
+                    <a href="index.html">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z"/></svg>
+                      <span>Home</span>
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="orders.html">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560q-17 0-28.5-11.5T520-640ZM120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160q-17 0-28.5-11.5T120-480Zm400 320v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560q-17 0-28.5-11.5T520-160Zm-400 0v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160q-17 0-28.5-11.5T120-160Zm80-360h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"/></svg>
+                      <span>Orders</span>
+                    </a>
+                  </li>
+                  <li>
+                    <button onclick=toggleSubMenu(this) class="dropdown-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Zm400-160v40q0 17 11.5 28.5T600-320q17 0 28.5-11.5T640-360v-40h40q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480h-40v-40q0-17-11.5-28.5T600-560q-17 0-28.5 11.5T560-520v40h-40q-17 0-28.5 11.5T480-440q0 17 11.5 28.5T520-400h40Z"/></svg>
+                      <span>Create</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/></svg>
+                    </button>
+                    <ul class="sub-menu">
+                      <div>
+                        <li><a href="#">Folder</a></li>
+                        <li><a href="#">Document</a></li>
+                        <li><a href="#">Project</a></li>
+                      </div>
+                    </ul>
+                  </li>
+                  <li>
+                    <button onclick=toggleSubMenu(this) class="dropdown-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m221-313 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-228q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm0-320 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-548q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm339 353q-17 0-28.5-11.5T520-320q0-17 11.5-28.5T560-360h280q17 0 28.5 11.5T880-320q0 17-11.5 28.5T840-280H560Zm0-320q-17 0-28.5-11.5T520-640q0-17 11.5-28.5T560-680h280q17 0 28.5 11.5T880-640q0 17-11.5 28.5T840-600H560Z"/></svg>
+                      <span>Todo-Lists</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/></svg>
+                    </button>
+                    <ul class="sub-menu">
+                      <div>
+                        <li><a href="#">Work</a></li>
+                        <li><a href="#">Private</a></li>
+                        <li><a href="#">Coding</a></li>
+                        <li><a href="#">Gardening</a></li>
+                        <li><a href="#">School</a></li>
+                      </div>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="calendar.html">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-40q0-17 11.5-28.5T280-880q17 0 28.5 11.5T320-840v40h320v-40q0-17 11.5-28.5T680-880q17 0 28.5 11.5T720-840v40h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg>
+                      <span>Calendar</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="profile.html">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+                      <span>Profile</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+        <div class="main">
+            <div class="header"><h1>Orders</h1></div>
+
+            <div class="menu">
+                <div class="tabs"> 
+                    <button onclick="request(this.innerHTML)">All Orders</button>
+                    <button onclick="request(this.innerHTML)">Pending</button>
+                    <button onclick="request(this.innerHTML)">In Progress</button>
+                    <button onclick="request(this.innerHTML)">Shipped</button>
+                    <button onclick="request(this.innerHTML)">Dispatched</button>
+                    <button onclick="request(this.innerHTML)">Completed</button>
+                    
+                </div>
+                <div class="datepicker"> <select name="" id="">
+                    <option value="December">December</option>
+                </select></div>
+            </div>
+            <div class="table">
+                <div class="thead">
+                    <div class="headrow">
+                        <div class="cell" contenteditable="true">Order</div>
+                        <div class="cell" contenteditable="true">Date</div>
+                        <div class="cell" contenteditable="true">Customer</div>
+                        <div class="cell" contenteditable="true">Priority</div>
+                        <div class="cell" contenteditable="true">Destination</div>
+                        <div class="cell" contenteditable="true">Order Status</div>
+                        <div class="cell" contenteditable="true">Total</div>
+                        <div class="cell" contenteditable="true">Payment mode</div>
+                        <div class="cell" contenteditable="true">Payment Status</div>
+                    </div>
+                </div>
+                <div class="tbody">
+                   
+                </div>
+            </div>
+
+
+<div class="container">
+    <i class="fa-solid fa-xmark"></i>
+    <div class="card" >
+        <div class="date">October 9, 2024</div>
+        <div class="address">Christian Medical College & Hospital, Brown Rd, CMC Campus, Ludhiana, Punjab 141008</div>
+        <div class="list">
+            <div class="headrow">
+                <div class="cell">Drug</div>
+                <div class="cell">quantity</div>
+                <div class="cell">price</div>
+                <div class="cell">Total</div>
+            </div>
+      
+
+        </div>
+        <div class="total">
+            <h3>Total</h3>
+            <h3>2500</h3>
+        </div>
+    </div>
+</div>
+
+
+
+
+        </div>
+        
+    </div>
+    <script>
+// datafill function fill data to table 
+//cardval fetch specific order from order id
+//uptable fetch all data 
+//colorupdate() updates color of badges
+//request function will request for data acording to tag buttons
+//update_month() will update month to request
+
+
+
+        function card(order){
+            let overlay = document.querySelector(".overlay");
+            let card = document.querySelector(".container");
+            card.style.transform = "translate(30vw)";
+            overlay.style.width = "100vw";
+            overlay.style.opacity = "50%";
+            cardval(order);
+            console.log(order);
+        }
+        document.querySelector(".fa-xmark").addEventListener("click",()=>{
+            let overlay = document.querySelector(".overlay");
+            let card = document.querySelector(".container");
+            let address = document.querySelector(".address");
+            let item = document.querySelectorAll(".item");
+            
+            card.style.transform = "translate(100vw)";
+            setTimeout(function(){
+                overlay.style.width = "0vw";
+                item.forEach(tem=>tem.remove());
+                address.innerHTML = "";
+            },2000);
+            overlay.style.opacity = "0%";
+            
+            
+        })
+        // Replace '1' with the actual order or customer ID you want to fetch
+        async function cardval(order){
+
+        // Fetch the data from the API
+        await fetch(`data.php?order="${order}"`)
+            .then(response => response.text())  // Parse as text
+            .then(data => {
+                // Insert the table into the div
+               
+                let d = JSON.parse(data);
+                console.log(d);
+                updatevals(d)
+            })
+            .catch(error => {
+                console.error('Error fetching order data:', error);
+            });
+
+        }
+
+        function updatevals(data,t = 0){
+            let address = document.querySelector(".address");
+            let item = document.querySelector(".list");
+            let total = document.querySelector(".total");
+            item.querySelectorAll(".item").forEach(tem=>tem.remove());
+            data.forEach(data=>{t+=(data["price"]*data["quantity"]);
+
+               item.innerHTML +=  ` <div class="item">
+                <div class="row">
+                      <div class="cell">${data["product_name"]}</div>
+                        <div class="cell">${data["quantity"]}</div>
+                        <div class="cell">${data["price"]}</div>
+                        <div class="cell">${(data["price"]*data["quantity"]).toFixed(2)}</div>
+                  </div>
+                  </div>`
+            })
+            if(item.querySelectorAll(".item").length==0){total.children[1].innerHTML = 0}
+            else{total.children[1].innerHTML = t.toFixed(2);}
+            
+            address.innerHTML = data[0]["address"];
+        } 
+        async function uptable() {
+            let data = await  fetch(`api.php`)
+            .then(response => response.text())  // Parse as text
+            .then(data => {
+                // Insert the table into the div
+               
+                let d = JSON.parse(data);
+                console.log(d);
+                updatevals(d);
+                sorting(d);
+            })
+            .catch(error => {
+                console.error('Error fetching order data:', error);
+            });
+            
+        }
+        uptable();
+        function sorting(data){
+            let array = {};
+            for (let index = 0; index < data.length-1; index++) {
+                if(data[index]["Order ID"] != data[index+1]["Order ID"]){
+                    array[index] = data[index];
+                }
+            }
+            const orderArray = Object.values(array);
+            datafill(orderArray);
+        }
+        function datafill(data){
+        let tbody = document.querySelector(".tbody");
+        tbody.innerHTML = "";
+        data.forEach(element => {
+            tbody.innerHTML += `<div class="row">
+                                <div class="cell"><button data="${element["Status"]}"onclick="details(this.innerHTML,this.data)">${element["Order ID"]}</button></div>
+                                <div class="cell">${element["Order Date"]}</div>
+                                <div class="cell" >CMC</div>
+                                <div class="cell">high</div>
+                                <div class="cell">${element["Destination"]}</div>
+                                <div class="cell">${element["Status"]}</div>
+                                <div class="cell">${element["Destination"]}</div>
+                                <div class="cell">${element["Total"]}</div>
+                                <div class="cell">Online</div>
+                            </div>`;colorupdate()
+        });
+        }
+        function details(order,status){
+            console.log(status);
+            window.open(`or-details.php?id=${order}&status=${status}`)
+        }
+       function colorupdate(){
+        let cell = document.querySelectorAll(".tbody>.row");
+        cell.forEach((elems)=>{
+            let color,background;
+            switch(elems.children[5].innerHTML){
+                case "Pending":
+                 color = "rgb(255, 0, 0)";
+                 background = "rgba(255, 0, 0, 0.36)";
+                 break;
+                 case "Delivered":
+                 color = "#32cd32";
+                 background = "#32cd3236";
+                 break;
+                 case "Shipped":
+                 color = "#ffa500";
+                 background = "#ffa50036";
+                 break;
+        }
+        elems.children[5].style.color = color;
+        elems.children[5].style.background = background;
+
+
+
+        switch(elems.children[8].innerHTML){
+            case "Online":
+             color = "rgb(255, 0, 0)";
+             background = "rgba(255, 0, 0, 0.36)";
+             break;
+             
+    }
+    elems.children[8].style.color = color;
+    elems.children[8].style.background = background;
+    
+    
+    
+    
+    })
+       }
+
+      function request(elmtext){
+        let btns = document.querySelectorAll(".tabs>button");
+        btns.forEach(btn =>{
+            if(btn.innerHTML == elmtext){
+                btn.style.border = "1px solid";
+                btn.style.background = "white";
+                btn.style.filter = "none";
+            }
+            else{
+                btn.style.border = "none";
+                btn.style.background = "none";
+                btn.style.filter = "blur(0.7px)";
+            }
+        })
+
+        fetch(`badge.php?order="${elmtext}"`)
+            .then(response => response.text())  // Parse as text
+            .then(data => {
+                // Insert the table into the div
+                let tbody = document.querySelector(".tbody");
+                tbody.innerHTML = "";
+                let d = JSON.parse(data);
+                console.log(d);
+                datafill(d)
+            })
+            .catch(error => {
+                console.error('Error fetching order data:', error);
+            });
+
+
+      }
+    
+
+
+    
+    </script>
+    
+
+</body>
+</html>
